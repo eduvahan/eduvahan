@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUVAHAN SERVICES | School Transport & Canteen Bangalore</title>
+    <meta name="description" content="Safe school transportation and nutritious canteen services in Bangalore. Trusted by schools for reliability and hygiene.">
+    <style>
+        :root {
+            /* Theme Colors based on Letterhead */
+            --primary-blue: #003366;       /* Deep Navy - Trust & Safety */
+            --accent-orange: #FF6600;      /* Vibrant Orange - Energy & Food */
+            --bg-cream: #FFFDF5;           /* Soft Cream - Warm Background */
+            --card-white: #FFFFFF;         /* Pure White - For Cards */
+            --text-dark: #333333;          /* Dark Grey - Readability */
+            --text-light: #F5F5F5;         /* Off White - Text on Blue */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+
+        /* Navigation */
+        nav { 
+            background: var(--primary-blue); 
+            padding: 1rem 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border-bottom: 3px solid var(--accent-orange);
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo { 
+            color: var(--text-light); 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { 
+            color: var(--text-light); 
+            text-decoration: none; 
+            transition: color 0.3s; 
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--accent-orange); }
+
+        /* Hero Section */
+        .hero { 
+            margin-top: 70px; 
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #004080 100%); 
+            color: var(--text-light); 
+            padding: 6rem 2rem; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        /* Decorative circle */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--accent-orange);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero p { 
+            font-size: 1.3rem; 
+            margin-bottom: 2.5rem; 
+            color: #e0e0e0;
+        }
+        .cta-button { 
+            display: inline-block; 
+            background: var(--accent-orange); 
+            color: var(--text-light); 
+            padding: 1rem 2.5rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+        }
+        .cta-button:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6); 
+            background: #e65c00;
+        }
+
+        /* Sections */
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            color: var(--primary-blue); 
+            margin-bottom: 3rem; 
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-orange);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Grid */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+            margin-bottom: 3rem; 
+        }
+        .service-card { 
+            background: var(--card-white); 
+            border-radius: 12px; 
+            padding: 2.5rem; 
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.08); 
+            transition: transform 0.3s; 
+            border-top: 5px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-8px); }
+        .service-card h3 { 
+            color: var(--primary-blue); 
+            font-size: 1.6rem; 
+            margin-bottom: 1rem; 
+        }
+        .service-card.canteen { border-top-color: var(--accent-orange); }
+        .icon { font-size: 3.5rem; margin-bottom: 1.5rem; display: block; }
+        
+        /* List Styling */
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .service-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .service-card ul li::before {
+            content: '✓';
+            color: var(--accent-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .service-card ul li:last-child { border-bottom: none; }
+
+        /* Features Section */
+        .features { 
+            background: #FFF8E7; /* Slightly darker cream for contrast */
+            padding: 5rem 2rem; 
+            width: 100%;
+            max-width: 100%;
+        }
+        .features-container { max-width: 1200px; margin: 0 auto; }
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+        }
+        .feature { 
+            text-align: center; 
+            padding: 2rem; 
+            background: var(--bg-cream);
+            border-radius: 10px;
+            border: 1px solid #ffe0b2;
+        }
+        .feature-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+        .feature h3 { color: var(--primary-blue); margin-bottom: 0.5rem; }
+
+        /* Why Choose Us */
+        .why-us { background: var(--bg-cream); }
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 2rem; 
+            text-align: center; 
+            margin-top: 3rem; 
+        }
+        .stat { 
+            padding: 2.5rem; 
+            background: var(--primary-blue); 
+            color: var(--text-light);
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .stat-number { 
+            font-size: 3rem; 
+            color: var(--accent-orange); 
+            font-weight: bold; 
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact { 
+            background: var(--primary-blue); 
+            color: var(--text-light); 
+            text-align: center; 
+            width: 100%;
+            max-width: 100%;
+        }
+        .contact .section-title { color: var(--text-light); }
+        .contact-info { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+            margin: 3rem auto; 
+            max-width: 1200px;
+        }
+        .contact-item { 
+            padding: 2rem; 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 10px; 
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .contact-item h3 { 
+            margin-bottom: 0.5rem; 
+            color: var(--accent-orange); 
+            font-size: 1.3rem;
+        }
+        
+        .contact-form { 
+            max-width: 600px; 
+            margin: 3rem auto 0; 
+            background: var(--card-white); 
+            padding: 3rem; 
+            border-radius: 12px; 
+            color: var(--text-dark); 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-group label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            font-weight: bold; 
+            color: var(--primary-blue); 
+        }
+        .form-group input, .form-group textarea, .form-group select { 
+            width: 100%; 
+            padding: 0.8rem; 
+            border: 2px solid #e0e0e0; 
+            border-radius: 6px; 
+            font-size: 1rem; 
+            background: #fafafa;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { 
+            outline: none; 
+            border-color: var(--accent-orange); 
+            background: #fff;
+        }
+        .submit-btn { 
+            background: var(--accent-orange); 
+            color: var(--text-light); 
+            padding: 1rem 3rem; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background: #e65c00; }
+
+        /* Footer */
+        footer { 
+            background: #002244; /* Darker than primary blue */
+            color: #ccc; 
+            text-align: center; 
+            padding: 2.5rem; 
+            border-top: 4px solid var(--accent-orange);
+        }
+        footer .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+        footer .footer-logo img {
+            height: 80px;
+            width: auto;
+        }
+        footer p { margin: 0.5rem 0; }
+        footer strong { color: var(--text-light); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .logo img { height: 40px; }
+            .section-title { font-size: 2rem; }
+            .contact-form { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Eduvahan Services Logo">
+                <span>EDUVAHAN SERVICES</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Safe Transportation & Nutritious Meals</h1>
+        <p>Trusted by Bangalore schools for reliability, safety, and hygiene</p>
+        <a href="#contact" class="cta-button">Get a Free Quote</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="icon">🚌</span>
+                <h3>School Transportation</h3>
+                <p><strong>Safe & Reliable Bus Services</strong></p>
+                <ul style="margin-top: 1rem;">
+                    <li>GPS-tracked, modern fleet</li>
+                    <li>Background-checked, trained drivers</li>
+                    <li>Real-time parent notifications</li>
+                    <li>Regular safety maintenance</li>
+                    <li>On-time pickup & drop-off guarantee</li>
+                    <li>Seat belts on all vehicles</li>
+                </ul>
+            </div>
+            
+            <div class="service-card canteen">
+                <span class="icon">🍎</span>
+                <h3>Canteen Services</h3>
+                <p><strong>Healthy & Delicious Meals</strong></p>
+                <ul style="margin-top: 1rem;">
+                    <li>Nutritionist-approved menus</li>
+                    <li>Fresh, hygienic food preparation</li>
+                    <li>Dietary restriction accommodations</li>
+                    <li>Vegetarian & allergy-friendly options</li>
+                    <li>ISO-certified kitchen standards</li>
+                    <li>Daily fresh cooking</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Parents Trust Us</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Safety First</h3>
+                    <p>Rigorous safety protocols and regular inspections</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⏰</span>
+                    <h3>Always On Time</h3>
+                    <p>98% on-time record for all routes</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🥗</span>
+                    <h3>Healthy Food</h3>
+                    <p>Balanced meals designed by nutritionists</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📱</span>
+                    <h3>Easy Communication</h3>
+                    <p>Real-time updates for parents and schools</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="why-us">
+        <h2 class="section-title">The Eduvahan Promise</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #555;">
+            <p style="margin-bottom: 2rem;">We understand that schools need reliable partners who prioritize student welfare. Based in Bangalore, we've built our reputation on trust, safety, and excellence.</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <div>Safety Compliance</div>
+            </div>
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <div>Support</div>
+            </div>
+            <div class="stat">
+                <span class="stat-number">Hygiene</span>
+                <div>Certified Kitchen</div>
+            </div>
+            <div class="stat">
+                <span class="stat-number">Local</span>
+                <div>Bangalore Based</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="contact" id="contact">
+        <section>
+            <h2 class="section-title">Partner With Us</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e0e0;">Ready to provide your students with safe transport and healthy meals?</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📞 Call Us</h3>
+                    <p>[Your Phone Number]</p>
+                    <p>Mon-Sat: 8am - 6pm</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>[Your Email Address]</p>
+                    <p>We reply within 24 hours</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>256, HIG Colony, RMV Stage 2</p>
+                    <p>Bangalore, Karnataka</p>
+                </div>
+            </div>
+
+            <!-- FORMSPREE INTEGRATION -->
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; text-align: center;">Request a Quote</h3>
+                
+                <div class="form-group">
+                    <label for="name">School Name / Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Interested In *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="transport">School Transportation</option>
+                        <option value="canteen">Canteen Services</option>
+                        <option value="both">Both Services</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your specific requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="logo.png" alt="Eduvahan Services Logo">
+        </div>
+        <p>&copy; 2024 <strong>EDUVAHAN SERVICES</strong>. All rights reserved.</p>
+        <p>256, HIG Colony, RMV Stage 2, Bangalore, Karnataka</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Licensed & Insured | Certified Food Safety | DOT Compliant</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
